@@ -105,7 +105,7 @@ PRODUCT_COPY_FILES += \
     device/htc/primoc/keylayout/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl
 
 # Inherit qcom proprietary blobs
-$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
+#$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
 
 # ACDB
 PRODUCT_COPY_FILES += \
