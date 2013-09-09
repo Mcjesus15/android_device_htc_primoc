@@ -7,6 +7,7 @@ $(call inherit-product, vendor/ev/config/common_full_phone.mk)
 # Inherit some common ev stuff.
 $(call inherit-product, vendor/ev/config/cdma.mk)
 
+PRODUCT_NAME := ev_primoc
 PRODUCT_BRAND := htc
 PRODUCT_DEVICE := primoc
 PRODUCT_MODEL := One V
