@@ -195,5 +195,5 @@
     <bool name="config_telephony_use_own_number_for_voicemail">true</bool>
 
     <!-- True if the Sym key should open the InputMethodPicker (default) -->
-    <bool name="config_symKeyShowsImePicker">false</bool>
+    <!-- <bool name="config_symKeyShowsImePicker">false</bool>  -->
 </resources>
