@@ -25,7 +25,7 @@ PRODUCT_COPY_FILES += \
     device/htc/primoc/ramdisk/init.primoc.rc:root/init.primoc.rc \
     device/htc/primoc/ramdisk/ueventd.primoc.rc:root/ueventd.primoc.rc \
     device/htc/primoc/ramdisk/fstab.primoc:root/fstab.primoc \
-    device/htc/glacier/ramdisk/fstab.primoc:root/remount.primoc
+    device/htc/primoc/ramdisk/fstab.primoc:root/remount.primoc
 
 # Vendor
 $(call inherit-product-if-exists, vendor/htc/primoc/primoc-vendor.mk)
