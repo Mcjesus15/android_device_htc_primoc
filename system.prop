@@ -61,8 +61,6 @@ persist.sys.usb.config=mass_storage,adb
 dalvik.vm.dexopt-data-only=1
 
 # Hardware Info
-ro.device.chipset=Qualcomm Snapdragon MSM8655
-ro.device.gpu=Adreno 205
 ro.device.front_cam=Not available
 ro.device.rear_cam=5 Megapixels
 ro.device.screen_res=480x800
