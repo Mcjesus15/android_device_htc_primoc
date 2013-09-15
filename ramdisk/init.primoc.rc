@@ -13,6 +13,9 @@ on early-init
     symlink /mnt/shell/primary/0 /storage/primary/legacy
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
+    
+    # 4.3 requires this
+    chmod 0644 /proc/cmdline
 
 on early-fs
    mkdir /devlog 0700 root root
