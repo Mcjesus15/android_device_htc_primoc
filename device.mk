@@ -24,8 +24,7 @@ PRODUCT_COPY_FILES += device/htc/primoc/configs/gps.conf:system/etc/gps.conf
 PRODUCT_COPY_FILES += \
     device/htc/primoc/ramdisk/init.primoc.rc:root/init.primoc.rc \
     device/htc/primoc/ramdisk/ueventd.primoc.rc:root/ueventd.primoc.rc \
-    device/htc/primoc/ramdisk/fstab.primoc:root/fstab.primoc \
-    device/htc/primoc/ramdisk/fstab.primoc:root/remount.primoc
+    device/htc/primoc/ramdisk/fstab.primoc:root/fstab.primoc
 
 # Vendor
 $(call inherit-product-if-exists, vendor/htc/primoc/primoc-vendor.mk)
@@ -37,8 +36,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.gmsversion=2.3_r3 \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y \
-    ro.sf.lcd_density=240
-	
+    ro.sf.lcd_density=240 \
+    dalvik.vm.debug.alloc=0
+
 # Carrier Info
 CDMA_GOOGLE_BASE := android-virgin-us
 CDMA_CARRIER_ALPHA := Virgin_Mobile
@@ -119,7 +119,7 @@ PRODUCT_COPY_FILES += \
     device/htc/primoc/dsp/AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
     device/htc/primoc/dsp/CodecDSPID.txt:system/etc/CodecDSPID.txt \
     device/htc/primoc/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv 
-	
+
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 
