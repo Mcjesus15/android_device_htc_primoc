@@ -40,9 +40,7 @@ BOARD_KERNEL_PAGE_SIZE := 4096
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := primoc
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
-# TARGET_PROVIDES_LIBLIGHTS := true
-
-TARGET_NO_HW_VSYNC := true
+TARGET_PROVIDES_LIBLIGHTS := true
 
 # cat /proc/emmc
 #dev:        size     erasesize name
@@ -64,21 +62,17 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 
 # Kernel
-#TARGET_KERNEL_SOURCE := kernel/htc/primoc
+TARGET_KERNEL_SOURCE := kernel/htc/primoc
 TARGET_KERNEL_CONFIG := primoc_defconfig
 #TARGET_PREBUILT_KERNEL := device/htc/primoc/prebuilt/root/kernel
 #BUILD_KERNEL := true
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+
+TARGET_ARCH_LOWMEM := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/htc/primoc/ramdisk/fstab.primoc
 RECOVERY_FSTAB_VERSION := 2
-
-# PMEM
-TARGET_USES_PMEM := true
-
-BOARD_USE_QCOM_PMEM := true
-
 
 # File System
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -88,14 +82,12 @@ BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_USES_MMCUTILS := false
 BOARD_HAS_NO_MISC_PARTITION := false
 
-#BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
-
-BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/primoc/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/primoc/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/htc/primoc/configs/libbt_vndcfg.txt
 
 # No SDK blobs
