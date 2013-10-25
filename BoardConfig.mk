@@ -66,7 +66,10 @@ TARGET_KERNEL_SOURCE := kernel/htc/primoc
 TARGET_KERNEL_CONFIG := primoc_defconfig
 #TARGET_PREBUILT_KERNEL := device/htc/primoc/prebuilt/root/kernel
 #BUILD_KERNEL := true
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+# TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+
+# RIL
+COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
 
 TARGET_ARCH_LOWMEM := true
 
@@ -89,3 +92,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storag
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/primoc/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/htc/primoc/configs/libbt_vndcfg.txt
+
+# No SDK blobs
+BUILD_EMULATOR_SENSORS_MODULE := false
+BUILD_EMULATOR_GPS_MODULE := false
