@@ -16,6 +16,11 @@
 /dev/snd/*                0660    system      audio
 /dev/pmem_audio	          0660   system     audio
 /dev/tpa2051d3	          0660   system     audio
+/dev/msm_qcelp_in         0660   system     audio
+/dev/msm_evrc_in          0660   system     audio
+/dev/msm_amrnb_in         0640   system     audio
+/dev/msm_mvs              0660   system     audio
+/dev/msm_aac              0660   system     audio
 
 /dev/kgsl-2d0             0666   root       root
 /dev/kgsl-2d1             0666   root       root
