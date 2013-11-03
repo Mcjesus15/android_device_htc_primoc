@@ -4,9 +4,6 @@ $(call inherit-product, device/htc/primoc/device.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/cdma.mk)
-
 PRODUCT_NAME := cm_primoc
 PRODUCT_BRAND := htc
 PRODUCT_DEVICE := primoc

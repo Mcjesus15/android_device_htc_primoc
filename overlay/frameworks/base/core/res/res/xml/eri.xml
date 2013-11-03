@@ -19,7 +19,7 @@
      The icon is turned OFF if then IconIndex = 1 -->
 
 <EriFile VersionNumber="1357"
-         NumberOfEriEntries="12"
+         NumberOfEriEntries="13"
          EriFileType="1">
 
          <CallPromptId Id="0"

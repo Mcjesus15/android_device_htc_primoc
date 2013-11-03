@@ -31,16 +31,26 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/htc/primoc/BoardConfigVendor.mk
 
+# inherit bcmdhd config
+-include device/htc/msm7x30-common/bcmdhd.mk
+
 TARGET_BOOTLOADER_BOARD_NAME := primoc
 
 BOARD_KERNEL_CMDLINE := no_console_suspend=1
 BOARD_KERNEL_BASE := 0x14300000
 BOARD_KERNEL_PAGE_SIZE := 4096
 
+# GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := primoc
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
-TARGET_PROVIDES_LIBLIGHTS := true
+TARGET_PROVIDES_LIBLIGHT := true
+
+# RIL
+BOARD_USE_NEW_LIBRIL_HTC := true
+BOARD_USES_LEGACY_RIL := true
+
+# filesystems
 
 # cat /proc/emmc
 #dev:        size     erasesize name
@@ -56,17 +66,20 @@ TARGET_PROVIDES_LIBLIGHTS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 585101312
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1232072704
-BOARD_BOOTIMAGE_PARTITION_SIZE := 4464304
+BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
 BOARD_FLASH_BLOCK_SIZE := 262144
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
+
+# RIL
+COMMON_GLOBAL_CFLAGS += -DNEW_LIBRIL_HTC
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/primoc
 TARGET_KERNEL_CONFIG := primoc_defconfig
 #TARGET_PREBUILT_KERNEL := device/htc/primoc/prebuilt/root/kernel
 #BUILD_KERNEL := true
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 TARGET_ARCH_LOWMEM := true
 
@@ -86,6 +99,6 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/primoc/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/htc/primoc/configs/libbt_vndcfg.txt
+# No SDK blobs
+BUILD_EMULATOR_SENSORS_MODULE := false
+BUILD_EMULATOR_GPS_MODULE := false

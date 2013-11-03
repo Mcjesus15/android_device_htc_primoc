@@ -134,14 +134,6 @@ PRODUCT_COPY_FILES += \
     device/htc/primoc/firmware/fw_bcm4330_p2p_b1.bin:system/etc/firmware/fw_bcm4330_p2p_b1.bin \
     device/htc/primoc/firmware/calibration:system/etc/calibration
 
-# Bluetooth Vendor Configuration
-PRODUCT_COPY_FILES += \
-    device/htc/primoc/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
-# HTC BT audio config
-PRODUCT_COPY_FILES += \
-    device/htc/primoc/configs/AudioBTID.csv:system/etc/AudioBTID.csv
-
 # Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
         LOCAL_KERNEL := device/htc/primoc/prebuilt/kernel/kernel
