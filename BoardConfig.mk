@@ -36,7 +36,7 @@ USE_CAMERA_STUB := true
 
 TARGET_BOOTLOADER_BOARD_NAME := primoc
 
-BOARD_KERNEL_CMDLINE := no_console_suspend=1
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x14300000
 BOARD_KERNEL_PAGE_SIZE := 4096
 
@@ -83,6 +83,7 @@ TARGET_ARCH_LOWMEM := true
 # Recovery
 TARGET_RECOVERY_FSTAB := device/htc/primoc/ramdisk/fstab.primoc
 RECOVERY_FSTAB_VERSION := 2
+USE_SET_METADATA := false
 
 # File System
 BOARD_HAS_LARGE_FILESYSTEM := true
