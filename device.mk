@@ -143,12 +143,12 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Enable Low Ram Device flag => http://source.android.com/devices/low-ram.html
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=true
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.config.low_ram=true
 
 # Disable JIT
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.jit.codecachesize=0
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    dalvik.vm.jit.codecachesize=0
 
 # Turn off ZRAM by default
 PRODUCT_PROPERTY_OVERRIDES += \
