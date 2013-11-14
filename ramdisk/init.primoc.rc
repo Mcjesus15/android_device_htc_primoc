@@ -2,9 +2,10 @@ import init.htc7x30.usb.rc
 
 on init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
-    mkdir /storage 0555 root root
-    mkdir /storage/primary 0555 root root
-    mkdir /storage/primary/legacy 0555 root root
+    mkdir /mnt/media_rw/legacy 0700 media_rw media_rw
+    mkdir /storage 0700 root root
+    mkdir /storage/primary 0700 root root
+    mkdir /storage/primary/legacy 0700 root root
     export EXTERNAL_STORAGE /storage/primary/legacy
 
     # Support legacy paths
@@ -37,7 +38,6 @@ on post-fs-data
     chmod 0771 /data
     chown system system /data
     mkdir /data/radio 0770 radio radio
-    mkdir /data/misc 1771 system misc
     mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
     mkdir /data/misc/keystore 0700 keystore keystore
     mkdir /data/misc/vpn 0770 system vpn
@@ -47,7 +47,6 @@ on post-fs-data
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
 
     # Allow system to have access to /dev/tun directory
     mkdir /dev/tun 0770 system vpn
@@ -203,6 +202,11 @@ service akmd /system/bin/akmd
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p13 /dev/block/mmcblk0p14
     class core
     user root
+
+#sdcard daemon
+service fuse_legacy /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/legacy /storage/primary/legacy
+    class late_start
+    disabled
 
 on property:ro.logcat.on.boot=1
     start logcat
