@@ -12,5 +12,5 @@
 /dev/block/mmcblk0p28     /devlog      ext4    noatime,nodiratime,noauto_da_alloc,nosuid,nodev,barrier=0             wait
 /dev/block/mmcblk0p21     /recovery    emmc    defaults                                                              defaults
 /dev/block/mmcblk0p22     /boot        emmc    defaults                                                              defaults
-/devices/platform/msm_sdcc.4/mmc_host/mmc2      auto                auto    defaults             voldmanaged=sdcard,noemulatedsd
+/devices/platform/msm_sdcc.4/mmc_host/mmc2      auto                auto    defaults                                 voldmanaged=sdcard0:1,noemulatedsd
 

@@ -1,20 +1,16 @@
 import init.htc7x30.usb.rc
 
-on init
+on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
-    mkdir /mnt/media_rw/legacy 0700 media_rw media_rw
-    mkdir /storage 0700 root root
-    mkdir /storage/primary 0700 root root
-    mkdir /storage/primary/legacy 0700 root root
-    export EXTERNAL_STORAGE /storage/primary/legacy
+
+on init
+    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /storage/sdcard0 0700 root root
+    export EXTERNAL_STORAGE /storage/sdcard0
 
     # Support legacy paths
-    symlink /storage/primary/legacy /sdcard
-    symlink /storage/primary/legacy /mnt/sdcard
-    symlink /storage/primary/legacy /storage/sdcard0
-    symlink /mnt/shell/primary/0 /storage/primary/legacy
-
-    setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
 
 on early-fs
    mkdir /devlog 0700 root root
@@ -22,6 +18,8 @@ on early-fs
 on fs
    #mount all the things
    mount_all fstab.primoc
+
+   setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
 
 on emmc-fs
    #mount all the things
@@ -203,9 +201,9 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p13 /dev/block/mmc
     class core
     user root
 
-#sdcard daemon
-service fuse_legacy /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/legacy /storage/primary/legacy
-    class late_start
+# sdcard daemon
+service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+    class main
     disabled
 
 on property:ro.logcat.on.boot=1
