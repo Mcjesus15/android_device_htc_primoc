@@ -66,8 +66,11 @@
 /dev/msm_wmapro           0660   system     audio
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
 
+# pmem
+/dev/pmem                 0666   media      system
+
 # ion
-/dev/ion                  0664   system     system
+/dev/ion                  0664   media      system
 
 # rawchip
 /dev/rawchip0             0666   media      media

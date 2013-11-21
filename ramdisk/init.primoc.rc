@@ -205,12 +205,3 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p13 /dev/block/mmc
 service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
     class main
     disabled
-
-on property:ro.logcat.on.boot=1
-    start logcat
-
-service logcat /system/bin/logcat -f /data/media/logcat
-    class main
-    user root
-    disabled
-    oneshot
